@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ip}}</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <input type="button" id="btn" value="更新">
+        <span id="resp"></span></div>
+</body>
+<script>
+    $(document).ready(function () {
+        $("#btn").click(function () {
+            var ip = $("#ip").text();
+            var myajax = new XMLHttpRequest();
+            myajax.open("GET", ip.concat( "/tell?id=3185253407&method=update"),true)
+            myajax.send();
+            $("#resp").text(myajax.responseText);
+            $("#btn").attr("disabled", "disabled");
+        })
+    })
+</script>
+
+</html>
